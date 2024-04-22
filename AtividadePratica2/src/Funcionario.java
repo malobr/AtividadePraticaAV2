@@ -16,7 +16,7 @@ public class Funcionario extends Pessoa{
         this.funcao = funcao;
     }
 
-    //ToStrinf
+    ///Menssagem de apresentação Funcionario
     @Override
     public String toString() {
         String menssagem = super.toString() + "+\nFunção: "+funcao;

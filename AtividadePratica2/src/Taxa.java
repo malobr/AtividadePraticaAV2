@@ -17,6 +17,7 @@ public class Taxa extends Funcionario{
         this.valorHora = valorHora;
     }
 
+    //Menssagem de apresentação Taxa
     @Override
     public String toString() {
         String menssagem = super.toString() + "Valor da hora: R$" + valorHora;

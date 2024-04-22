@@ -17,6 +17,7 @@ public class Registrado extends Funcionario {
         this.salario = salario;
     }
 
+    //Menssagem de apresentação Registrado
     @Override
     public String toString() {
         String menssagem = super.toString() + "Salario: R$" + salario;
