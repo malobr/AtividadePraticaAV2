@@ -1,6 +1,7 @@
 public class Taxa extends Funcionario{
 
     private float valorHora;
+<<<<<<< Updated upstream
     private int horasTrabalhadas;
    
    
@@ -41,5 +42,29 @@ public class Taxa extends Funcionario{
         return mensagem;
     }
     
+=======
+
+>>>>>>> Stashed changes
     
+    //construtor parametrizado usando super class Pessoa e Funcionario
+
+    public Taxa(String nome, int cpf, int telefone, String funcao, float valorHora) {
+        super(nome, cpf, telefone, funcao);
+        this.valorHora = valorHora;
+    }
+
+    //Getters e Setters
+    public float getValorHora() {
+        return valorHora;
+    }
+
+    public void setValorHora(float valorHora) {
+        this.valorHora = valorHora;
+    }
+
+    @Override
+    public String toString() {
+        String menssagem = super.toString() + "Valor da hora: R$" + valorHora;
+        return menssagem;
+    }
 }

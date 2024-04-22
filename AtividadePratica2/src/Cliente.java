@@ -3,8 +3,6 @@ public class Cliente extends Pessoa{
     private int visitas;
     private boolean vip;
     
-    
-    
     public Cliente() {}
 
 
