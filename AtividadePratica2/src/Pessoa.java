@@ -42,7 +42,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        String menssagem = "Nome: " + nome + "\nCPF: " + cpf;
+        String menssagem = "Nome: " + nome + "\nCPF: " + cpf + "\nTelefone: " + telefone;
         return menssagem;
     }
 
