@@ -33,9 +33,10 @@ public class Cliente extends Pessoa{
 
     @Override
     public String toString() {
-        String menssagem = "Nome: " + nome + "\nCPF: " + cpf + "\nTelefone: " + telefone + "\nVisitas: " + visitas + "\nVip: " + Vip;
-        return menssagem;
+        String mensagem = "Nome: " + getNome() + "\nCPF: " + getCpf() + "\nTelefone: " + getTelefone() + "\nVisitas: " + visitas + "\nVip: " + vip;
+        return mensagem;
     }
+    
 
 
     
