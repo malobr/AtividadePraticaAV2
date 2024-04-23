@@ -21,5 +21,15 @@ public class Console {
     }
 
 
+    public static boolean lerBool() {
+        String input = leitor.nextLine();
+        while (!input.equalsIgnoreCase("Sim") && !input.equalsIgnoreCase("Nao")) {
+            System.out.println("Por favor, digite 'Sim' ou 'Nao'.");
+            input = leitor.nextLine();
+        }
+        return Boolean.parseBoolean(input);
+    }
+
+
 
 }
