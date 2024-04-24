@@ -14,7 +14,6 @@ public class Sistema {
 
     
     private static Scanner scanner = new Scanner(System.in);
-    private static List<Cliente> listaClientes = new ArrayList<>();
     private static List<Funcionario> listaFuncionarios = new ArrayList<>();
     
     private static void exibirMenu() {
@@ -36,6 +35,9 @@ public class Sistema {
         System.out.println("[6] Procurar Funcionario");
         System.out.println("[7] Excluir Funcionario");
         System.out.println("[8] Listar Todos os Funcionarios");
+        System.out.println("\nPessoas:");
+        System.out.println("[9] Listar Todas as Pessoas Cadastradas");
+        System.out.println("[10] Excluir Todas as Pessoas Cadastradas");
         System.out.println("0) Sair");
         System.out.print("\nInforme uma opção: ");
     }
@@ -69,6 +71,12 @@ public class Sistema {
             case 8: // Listar Funcionarios
                 listarFuncionarios();
                 break;
+            case 9:
+                listarTodasPessoas();
+                break;
+            case 10:
+                excluirTodasPessoas();
+                break;
             case 0: // Sair
                 System.out.println("\nO programa foi finalizado...");
                 break;
@@ -79,6 +87,7 @@ public class Sistema {
     }
 
     
+
 
     //Comeco cliente
     private static void cadastrarNovoCliente() {//Metodo de cadastro de novos clientes, apresenta mensagem de sucesso...
@@ -96,27 +105,26 @@ public class Sistema {
         System.out.print("Visitas: ");
         int visitas = Console.lerInt(); // Le o número de visitas do cliente...
     
-        /*System.out.print("Vip: ");
-        boolean vip = scanner.nextBoolean(); // Le se o cliente é VIP ou não...*/
-    
         // Cria cliete  com as infos...
         Cliente cliente = new Cliente(nome, cpf, telefone, visitas);
     
         // Adiciona o cliente à lista de clientes...
-        listaClientes.add(cliente);
+        Cadastro.cadastrar(cliente);
     
         System.out.println("\nCliente cadastrado com sucesso!");
+        enterParaSeguir();
 
     }//NAo salva o cadastro do cliente, aparece que da certo mas na hora de procurar, excluir ou listar ele nao aparece..
     
     private static void procurarCliente() {//Metodo para procurar clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         System.out.println("Informe o CPF do cliente:");
         int cpf = Console.lerInt();
-        for (Cliente cliente : listaClientes) {
+        for (Pessoa cliente : Cadastro.getListaPessoas()) {
             if (cliente.getCpf() == cpf) {
                 System.out.println("Cliente encontrado:");
-                System.out.println(cliente);
+                System.out.println(cliente.toString());
                 enterParaSeguir();
+
                 return;
             }
         }
@@ -126,9 +134,9 @@ public class Sistema {
     private static void excluirCliente() {//Metodo para excluir clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         System.out.println("Informe o CPF do cliente a ser excluido:");
         int cpf = Console.lerInt();
-        for (Cliente cliente : listaClientes) {
+        for (Pessoa cliente : Cadastro.getListaPessoas()) {
             if (cliente.getCpf() == cpf) {
-                listaClientes.remove(cliente);
+                Cadastro.getListaPessoas().remove(cliente);
                 System.out.println("Cliente excluido com sucesso!");
                 enterParaSeguir();
                 return;
@@ -138,19 +146,18 @@ public class Sistema {
     }
     
     private static void listarClientes() {//Metodo que lista os clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
-        if (listaClientes.size() == 0) {
+        if (Cadastro.getListaPessoas().size() == 0) {
             System.out.println("\nNao ha clientes cadastrados.");
         } else {
             System.out.println("\nLista de Clientes:");
-            for (Cliente cliente : listaClientes) {
-                System.out.println(cliente);
+            for (Pessoa cliente : Cadastro.getListaPessoas()) {
+                System.out.println(cliente.toString());
             }
             enterParaSeguir();
         }
     }
     //Fim Cliente
     
-
     //Comeco Funcionario
     private static void cadastrarNovoFuncionario() {//Metodo que cadastra funcionarios, apresenta mensagem de sucesso...
 
@@ -166,13 +173,50 @@ public class Sistema {
     
         System.out.print("Funcao: ");
         String funcao = Console.lerString(); // Le o número de visitas do cliente...
-    
+
+        System.out.println("Deseja adicionar o tipo de funcionario:");
+        System.out.println("[1] Sim ");
+        System.out.println("[2] Não");
+        int escolhaTipo = Console.lerInt();
+
+        if (escolhaTipo == 1) {
+            System.out.println("Qual tipo de funcionario deseja cadastrar");
+            System.out.println("[1] Registrado");
+            System.out.println("[2] Taxa ");
+            int tipo = Console.lerInt();
+            switch (tipo) {
+                case 1:
+                    System.out.println("\nTipo registrado");
+                    System.out.println("Informe o salario do funcionario");
+                    float salario = Console.lerFloat();
+
+                    Registrado registrado = new Registrado(nome, cpf, telefone, funcao,salario);
+                    Cadastro.cadastrar(registrado);
+
+                    break;
+                case 2:
+                
+                    System.out.println("\nTipo Taxa");
+                    System.out.println("Informe o valor da hora do funcionario");
+                    float vlrHora = Console.lerFloat();
+
+                    Taxa taxa = new Taxa(nome, cpf, telefone, funcao,vlrHora);
+                    Cadastro.cadastrar(taxa);
+                    
+                    break;
+                default:
+                    System.out.println("Resposta inválida");
+                    break;
+            }
+            
+        }else{
         // Cria cliete  com as infos...
         Funcionario funcionario = new Funcionario(nome, cpf, telefone, funcao);
     
         // Adiciona o cliente à lista de clientes...
-        listaFuncionarios.add(funcionario);
+        Cadastro.cadastrar(funcionario);
     
+        }
         System.out.println("\nFuncionario cadastrado com sucesso!");
         enterParaSeguir();
     }
@@ -218,6 +262,24 @@ public class Sistema {
     }
     //Fim Funcionario
     
+    //Inicio Pessoa
+    private static void excluirTodasPessoas() {
+        Cadastro.getListaPessoas() .clear();
+        System.out.println("Todas as pessoas foram excluídas com sucesso!");
+    }
+
+    private static void listarTodasPessoas() {
+        System.out.println("Listagem de todas as pessoas:");
+        for (Pessoa pessoa : Cadastro.getListaPessoas()) {
+            System.out.println(pessoa);
+    }
+}
+    
+    //metodo que "Pausa o código" para melhorar a legibilidade
+    public static void enterParaSeguir(){
+        System.out.println("\nClique em qualquer tecla para continuar");
+        Console.lerString();
+    }
 
     public static void executar() {//Metodo que executa o programa quanfo chamado na (main)...
 
@@ -231,10 +293,6 @@ public class Sistema {
         } while (op != 0);
     }
     
-    //metodo que "Pausa o código" para melhorar a legibilidade
-    public static void enterParaSeguir(){
-        System.out.println("\nClique em qualquer tecla para continuar");
-        Console.lerString();
-    }
+    
     
 }
