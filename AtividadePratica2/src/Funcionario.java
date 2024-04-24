@@ -19,7 +19,7 @@ public class Funcionario extends Pessoa{
     ///Menssagem de apresentação Funcionario
     @Override
     public String toString() {
-        String menssagem = super.toString() + "+\nFunção: "+funcao;
+        String menssagem = super.toString() + "+\nFunção: " + funcao;
         return menssagem;
     }
     

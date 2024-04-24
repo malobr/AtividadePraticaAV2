@@ -32,6 +32,17 @@ public class Sistema {
     }
 
     private static void verificarOpcao(int op) {
+
+       /* String nome;
+        int cpf;
+        int telefone;
+        int visitas;
+        boolean vip;
+        String funcao;
+        float valorHora;*///variaveis ja declaradas nos proprios metodos..
+
+
+
         switch (op) {
             case 1: // Cadastrar Cliente
                 cadastrarNovoCliente();
@@ -89,7 +100,7 @@ public class Sistema {
 
         Cliente cliente = new Cliente(nome, cpf, telefone, visitas, vip);
 
-        Cadastro.cadastrar(cliente);
+        CadastroPessoa.cadastrar(cliente);
 
         System.out.println("\nCliente cadastrado com sucesso!");
 
@@ -134,7 +145,25 @@ public class Sistema {
     
     
     private static void cadastrarNovoFuncionario() {
-       ////////////////////Fazer depois.....
+
+        System.out.println("\nNovo Funcionario:");
+        System.out.print("Nome: ");
+        String nome = Console.lerString();
+
+        System.out.print("CPF: ");
+        int cpf = Console.lerInt();
+
+        System.out.print("Telefone: ");
+        int telefone = Console.lerInt();
+
+        System.out.print("Funcao: ");
+        String visitas = Console.lerString();
+
+        
+        Funcionario funcionario = new Funcionario(nome, cpf, telefone, visitas);
+        CadastroPessoa.cadastrar(funcionario);
+
+        System.out.println("\nFuncionario cadastrado com sucesso!");
     }
     
     private static void procurarFuncionario() {

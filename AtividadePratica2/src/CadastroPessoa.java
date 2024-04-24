@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cadastro {
+public class CadastroPessoa {
     private static List<Pessoa> listaPessoas = new ArrayList<>();
 
     //Método que adiciona pessoa a lista
