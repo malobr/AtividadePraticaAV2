@@ -27,7 +27,6 @@ public class Cadastro {
         //Se a pessoa não for encontrada retornaremos nulo
         return null; 
     }
-
     public static List<Pessoa> getListaPessoas() {
         return listaPessoas;
     }

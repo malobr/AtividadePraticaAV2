@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Sistema {
@@ -14,7 +12,6 @@ public class Sistema {
 
     
     private static Scanner scanner = new Scanner(System.in);
-    private static List<Funcionario> listaFuncionarios = new ArrayList<>();
     
     private static void exibirMenu() {
         System.out.println("\n");
@@ -25,56 +22,35 @@ public class Sistema {
         System.out.println("──▄▄█▄▄──                         ──▄▄█▄▄──");
         
         
-        System.out.println("\nClientes:");
         System.out.println("[1] Cadastrar Cliente");
-        System.out.println("[2] Procurar Cliente");
-        System.out.println("[3] Excluir Cliente");
-        System.out.println("[4] Listar Todos os Clientes");
-        System.out.println("\nFuncionarios:");
-        System.out.println("[5] Cadastrar Funcionario");
-        System.out.println("[6] Procurar Funcionario");
-        System.out.println("[7] Excluir Funcionario");
-        System.out.println("[8] Listar Todos os Funcionarios");
-        System.out.println("\nPessoas:");
-        System.out.println("[9] Listar Todas as Pessoas Cadastradas");
-        System.out.println("[10] Excluir Todas as Pessoas Cadastradas");
+        System.out.println("[2] Cadastrar Funcionario");
+        System.out.println("[3] Procurar Pessoa");
+        System.out.println("[4] Listar Todas as Pessoas Cadastradas");
+        System.out.println("[5] Excluir Pessoa");
+        System.out.println("[6] Excluir Todas as Pessoas Cadastradas");
         System.out.println("0) Sair");
         System.out.print("\nInforme uma opção: ");
     }
     
     private static void verificarOpcao(int op) {
-        
-        
-        
+
         switch (op) {
             case 1: // Cadastrar Cliente
                 cadastrarNovoCliente();
                 break;
-            case 2: // Procurar Cliente
-                procurarCliente();
-                break;
-            case 3: // Excluir Cliente
-                excluirCliente();
-                break;
-            case 4: // Listar Clientes
-                listarClientes();
-                break;
-            case 5: // Cadastrar Funcionario
+            case 2: // Cadastrar Funcionario
                 cadastrarNovoFuncionario();
                 break;
+            case 3: // Procurar Pessoa
+                procurarPessoa();
+                break;
+            case 4: // Listar Clientes
+                listarPessoas();
+                break;
+            case 5: // Cadastrar Funcionario
+                excluirPessoa();
+                break;
             case 6: // Procurar Funcionario
-                procurarFuncionario();
-                break;
-            case 7: // Excluir Funcionario
-                excluirFuncionario();
-                break;
-            case 8: // Listar Funcionarios
-                listarFuncionarios();
-                break;
-            case 9:
-                listarTodasPessoas();
-                break;
-            case 10:
                 excluirTodasPessoas();
                 break;
             case 0: // Sair
@@ -116,7 +92,7 @@ public class Sistema {
 
     }//NAo salva o cadastro do cliente, aparece que da certo mas na hora de procurar, excluir ou listar ele nao aparece..
     
-    private static void procurarCliente() {//Metodo para procurar clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
+    private static void procurarPessoa() {//Metodo para procurar clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         System.out.println("Informe o CPF do cliente:");
         int cpf = Console.lerInt();
         for (Pessoa cliente : Cadastro.getListaPessoas()) {
@@ -131,13 +107,13 @@ public class Sistema {
         System.out.println("Cliente nao encontrado.");
     }
     
-    private static void excluirCliente() {//Metodo para excluir clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
+    private static void excluirPessoa() {//Metodo para excluir clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         System.out.println("Informe o CPF do cliente a ser excluido:");
         int cpf = Console.lerInt();
-        for (Pessoa cliente : Cadastro.getListaPessoas()) {
-            if (cliente.getCpf() == cpf) {
-                Cadastro.getListaPessoas().remove(cliente);
-                System.out.println("Cliente excluido com sucesso!");
+        for (Pessoa pessoa : Cadastro.getListaPessoas()) {
+            if (pessoa.getCpf() == cpf) {
+                Cadastro.getListaPessoas().remove(pessoa);
+                System.out.println("Pessoa excluida com sucesso!");
                 enterParaSeguir();
                 return;
             }
@@ -145,20 +121,18 @@ public class Sistema {
         System.out.println("Cliente nao encontrado.");
     }
     
-    private static void listarClientes() {//Metodo que lista os clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
+    private static void listarPessoas() {//Metodo que lista os clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         if (Cadastro.getListaPessoas().size() == 0) {
-            System.out.println("\nNao ha clientes cadastrados.");
+            System.out.println("\nNao ha Pessoas cadastradas.");
         } else {
-            System.out.println("\nLista de Clientes:");
+            System.out.println("\nLista de Pessoas:");
             for (Pessoa cliente : Cadastro.getListaPessoas()) {
                 System.out.println(cliente.toString());
             }
             enterParaSeguir();
         }
     }
-    //Fim Cliente
-    
-    //Comeco Funcionario
+
     private static void cadastrarNovoFuncionario() {//Metodo que cadastra funcionarios, apresenta mensagem de sucesso...
 
         System.out.println("\nNovo Funcionario:");
@@ -220,61 +194,12 @@ public class Sistema {
         System.out.println("\nFuncionario cadastrado com sucesso!");
         enterParaSeguir();
     }
-    
-    private static void procurarFuncionario() {//Metodo que procura funcionario cadastrado, caso nao tenha apresenta mensagem...
-        System.out.println("Informe o CPF do funcionario:");
-        int cpf = Console.lerInt();
-        for (Funcionario funcionario : listaFuncionarios) {
-            if (funcionario.getCpf() == cpf) {
-                System.out.println("Funcionario encontrado:");
-                System.out.println(funcionario);
-                enterParaSeguir();
-                return;
-            }
-        }
-        System.out.println("Funcionario não encontrado.");
-    }
-    
-    private static void excluirFuncionario() {//Metodo para excluir funcionario, caso nao tenha apresenta mensagem...
-        System.out.println("Informe o CPF do funcionario a ser excluido:");
-        int cpf = Console.lerInt();
-        for (Funcionario funcionario : listaFuncionarios) {
-            if (funcionario.getCpf() == cpf) {
-                listaFuncionarios.remove(funcionario);
-                System.out.println("Funcionario excluido com sucesso!");
-                enterParaSeguir();
-                return;
-            }
-        }
-        System.out.println("Funcionario não encontrado.");
-    }
-    
-    private static void listarFuncionarios() {//Metodo para listar funciionarios, caso nao tenha nehum apresenta mensagem...
-        if (listaFuncionarios.size() == 0) {
-            System.out.println("\nNão há funcionarios cadastrados.");
-        } else {
-            System.out.println("Lista de Funcionarios:");
-            for (Funcionario funcionario : listaFuncionarios) {
-                System.out.println(funcionario);
-            }
-            enterParaSeguir();
-        }
-    }
-    //Fim Funcionario
-    
-    //Inicio Pessoa
+  
     private static void excluirTodasPessoas() {
         Cadastro.getListaPessoas() .clear();
         System.out.println("Todas as pessoas foram excluídas com sucesso!");
     }
 
-    private static void listarTodasPessoas() {
-        System.out.println("Listagem de todas as pessoas:");
-        for (Pessoa pessoa : Cadastro.getListaPessoas()) {
-            System.out.println(pessoa);
-    }
-}
-    
     //metodo que "Pausa o código" para melhorar a legibilidade
     public static void enterParaSeguir(){
         System.out.println("\nClique em qualquer tecla para continuar");
