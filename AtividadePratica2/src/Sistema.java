@@ -79,8 +79,8 @@ public class Sistema {
 
     
    
-
-    private static void cadastrarNovoCliente() {
+    //Comeco cliente
+    private static void cadastrarNovoCliente() {//Metodo de cadastro de novos clientes, apresenta mensagem de sucesso...
        
         System.out.println("\nNovo Cliente:");
         System.out.print("Nome: ");
@@ -106,7 +106,7 @@ public class Sistema {
 
     }//NAo salva o cadastro do cliente, aparece que da certo mas na hora de procurar, excluir ou listar ele nao aparece..
     
-    private static void procurarCliente() {
+    private static void procurarCliente() {//Metodo para procurar clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         System.out.println("Informe o CPF do cliente:");
         int cpf = scanner.nextInt();
         for (Cliente cliente : listaClientes) {
@@ -119,7 +119,7 @@ public class Sistema {
         System.out.println("Cliente nao encontrado.");
     }
     
-    private static void excluirCliente() {
+    private static void excluirCliente() {//Metodo para excluir clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         System.out.println("Informe o CPF do cliente a ser excluido:");
         int cpf = scanner.nextInt();
         for (Cliente cliente : listaClientes) {
@@ -132,7 +132,7 @@ public class Sistema {
         System.out.println("Cliente nao encontrado.");
     }
     
-    private static void listarClientes() {
+    private static void listarClientes() {//Metodo que lista os clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         if (listaClientes.size() == 0) {
             System.out.println("\nNao ha clientes cadastrados.");
         } else {
@@ -142,9 +142,11 @@ public class Sistema {
             }
         }
     }
+    //Fim Cliente
     
-    
-    private static void cadastrarNovoFuncionario() {
+
+    //Comeco Funcionario
+    private static void cadastrarNovoFuncionario() {//Metodo que cadastra funcionarios, apresenta mensagem de sucesso...
 
         System.out.println("\nNovo Funcionario:");
         System.out.print("Nome: ");
@@ -166,7 +168,7 @@ public class Sistema {
         System.out.println("\nFuncionario cadastrado com sucesso!");
     }
     
-    private static void procurarFuncionario() {
+    private static void procurarFuncionario() {//Metodo que procura funcionario cadastrado, caso nao tenha apresenta mensagem...
         System.out.println("Informe o CPF do funcionario:");
         int cpf = scanner.nextInt();
         for (Funcionario funcionario : listaFuncionarios) {
@@ -179,7 +181,7 @@ public class Sistema {
         System.out.println("Funcionario não encontrado.");
     }
     
-    private static void excluirFuncionario() {
+    private static void excluirFuncionario() {//Metodo para excluir funcionario, caso nao tenha apresenta mensagem...
         System.out.println("Informe o CPF do funcionario a ser excluido:");
         int cpf = scanner.nextInt();
         for (Funcionario funcionario : listaFuncionarios) {
@@ -192,7 +194,7 @@ public class Sistema {
         System.out.println("Funcionario não encontrado.");
     }
     
-    private static void listarFuncionarios() {
+    private static void listarFuncionarios() {//Metodo para listar funciionarios, caso nao tenha nehum apresenta mensagem...
         if (listaFuncionarios.size() == 0) {
             System.out.println("\nNão há funcionarios cadastrados.");
         } else {
@@ -202,9 +204,10 @@ public class Sistema {
             }
         }
     }
+    //Fim Funcionario
     
 
-    public static void executar() {
+    public static void executar() {//Metodo que executa o programa quanfo chamado na (main)...
 
         int op;
         do {
@@ -214,7 +217,7 @@ public class Sistema {
             verificarOpcao(op);
 
         } while (op != 0);
-
+        //blablabla
     }
     
     
