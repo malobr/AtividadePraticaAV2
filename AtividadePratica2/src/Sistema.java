@@ -4,19 +4,28 @@ import java.util.Scanner;
 
 public class Sistema {
 
+    /*String nome;
+        int cpf;
+        int telefone;
+        int visitas;
+        boolean vip;
+        String funcao;
+        float valorHora;///variaveis ja declaradas nos proprios metodos..*/
+
+    
     private static Scanner scanner = new Scanner(System.in);
     private static List<Cliente> listaClientes = new ArrayList<>();
     private static List<Funcionario> listaFuncionarios = new ArrayList<>();
-
+    
     private static void exibirMenu() {
         System.out.println("\n");
-        System.out.println(" ──────▄▀──                       ──────▄▀──");
+        System.out.println("─────▄▀──                         ─────▄▀──");
         System.out.println("─█▀▀▀█▀█─     ---------------     ─█▀▀▀█▀█─");
         System.out.println("──▀▄░▄▀──     |     BOATE    |    ──▀▄░▄▀──");
         System.out.println("────█────     ---------------     ────█────");
         System.out.println("──▄▄█▄▄──                         ──▄▄█▄▄──");
-
-
+        
+        
         System.out.println("\nClientes:");
         System.out.println("[1] Cadastrar Cliente");
         System.out.println("[2] Procurar Cliente");
@@ -30,19 +39,11 @@ public class Sistema {
         System.out.println("0) Sair");
         System.out.print("\nInforme uma opção: ");
     }
-
+    
     private static void verificarOpcao(int op) {
-
-       /* String nome;
-        int cpf;
-        int telefone;
-        int visitas;
-        boolean vip;
-        String funcao;
-        float valorHora;*///variaveis ja declaradas nos proprios metodos..
-
-
-
+        
+        
+        
         switch (op) {
             case 1: // Cadastrar Cliente
                 cadastrarNovoCliente();
@@ -78,11 +79,11 @@ public class Sistema {
     }
 
     
-   
+
     //Comeco cliente
     private static void cadastrarNovoCliente() {//Metodo de cadastro de novos clientes, apresenta mensagem de sucesso...
-       
-        System.out.println("\nNovo Cliente:");
+    
+    /* System.out.println("\nNovo Cliente:");
         System.out.print("Nome: ");
         String nome = Console.lerString();
 
@@ -100,8 +101,34 @@ public class Sistema {
 
         Cliente cliente = new Cliente(nome, cpf, telefone, visitas, vip);
 
-        CadastroPessoa.cadastrar(cliente);
+        Cadastro.cadastrar(cliente);
 
+        System.out.println("\nCliente cadastrado com sucesso!");*/
+
+
+        //Teste...
+        System.out.println("\nNovo Cliente:");
+        System.out.print("Nome: ");
+        String nome = scanner.nextLine(); // Le o nome do cliente...
+    
+        System.out.print("CPF: ");
+        int cpf = scanner.nextInt(); // Le o CPF do cliente...
+    
+        System.out.print("Telefone: ");
+        int telefone = scanner.nextInt(); // Le o telefone do cliente....
+    
+        System.out.print("Visitas: ");
+        int visitas = scanner.nextInt(); // Le o número de visitas do cliente...
+    
+        /*System.out.print("Vip: ");
+        boolean vip = scanner.nextBoolean(); // Le se o cliente é VIP ou não...*/
+    
+        // Cria cliete  com as infos...
+        Cliente cliente = new Cliente(nome, cpf, telefone, visitas);
+    
+        // Adiciona o cliente à lista de clientes...
+        listaClientes.add(cliente);
+    
         System.out.println("\nCliente cadastrado com sucesso!");
 
     }//NAo salva o cadastro do cliente, aparece que da certo mas na hora de procurar, excluir ou listar ele nao aparece..
@@ -148,7 +175,7 @@ public class Sistema {
     //Comeco Funcionario
     private static void cadastrarNovoFuncionario() {//Metodo que cadastra funcionarios, apresenta mensagem de sucesso...
 
-        System.out.println("\nNovo Funcionario:");
+        /*System.out.println("\nNovo Funcionario:");
         System.out.print("Nome: ");
         String nome = Console.lerString();
 
@@ -163,9 +190,34 @@ public class Sistema {
 
         
         Funcionario funcionario = new Funcionario(nome, cpf, telefone, visitas);
-        CadastroPessoa.cadastrar(funcionario);
+        Cadastro.cadastrar(funcionario);
 
-        System.out.println("\nFuncionario cadastrado com sucesso!");
+        System.out.println("\nFuncionario cadastrado com sucesso!");*/
+
+
+        System.out.println("\nNovo Funcionario:");
+        System.out.print("Nome: ");
+        String nome = scanner.nextLine(); // Le o nome do cliente...
+    
+        System.out.print("CPF: ");
+        int cpf = scanner.nextInt(); // Le o CPF do cliente...
+    
+        System.out.print("Telefone: ");
+        int telefone = scanner.nextInt(); // Le o telefone do cliente....
+    
+        System.out.print("Funcao: ");
+        String funcao = scanner.nextLine(); // Le o número de visitas do cliente...
+    
+        /*System.out.print("Vip: ");
+        boolean vip = scanner.nextBoolean(); // Le se o cliente é VIP ou não...*/
+    
+        // Cria cliete  com as infos...
+        Funcionario funcionario = new Funcionario(nome, cpf, telefone, funcao);
+    
+        // Adiciona o cliente à lista de clientes...
+        listaFuncionarios.add(funcionario);
+    
+        System.out.println("\n cadastrado com sucesso!");
     }
     
     private static void procurarFuncionario() {//Metodo que procura funcionario cadastrado, caso nao tenha apresenta mensagem...
