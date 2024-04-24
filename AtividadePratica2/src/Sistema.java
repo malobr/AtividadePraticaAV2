@@ -82,31 +82,7 @@ public class Sistema {
 
     //Comeco cliente
     private static void cadastrarNovoCliente() {//Metodo de cadastro de novos clientes, apresenta mensagem de sucesso...
-    
-    /* System.out.println("\nNovo Cliente:");
-        System.out.print("Nome: ");
-        String nome = Console.lerString();
 
-        System.out.print("CPF: ");
-        int cpf = Console.lerInt();
-
-        System.out.print("Telefone: ");
-        int telefone = Console.lerInt();
-
-        System.out.print("Visitas: ");
-        int visitas = Console.lerInt();
-
-        System.out.print("Vip: ");
-        boolean vip = Console.lerBool();
-
-        Cliente cliente = new Cliente(nome, cpf, telefone, visitas, vip);
-
-        Cadastro.cadastrar(cliente);
-
-        System.out.println("\nCliente cadastrado com sucesso!");*/
-
-
-        //Teste...
         System.out.println("\nNovo Cliente:");
         System.out.print("Nome: ");
         String nome =Console.lerString(); // Le o nome do cliente...
@@ -140,6 +116,7 @@ public class Sistema {
             if (cliente.getCpf() == cpf) {
                 System.out.println("Cliente encontrado:");
                 System.out.println(cliente);
+                enterParaSeguir();
                 return;
             }
         }
@@ -153,6 +130,7 @@ public class Sistema {
             if (cliente.getCpf() == cpf) {
                 listaClientes.remove(cliente);
                 System.out.println("Cliente excluido com sucesso!");
+                enterParaSeguir();
                 return;
             }
         }
@@ -167,6 +145,7 @@ public class Sistema {
             for (Cliente cliente : listaClientes) {
                 System.out.println(cliente);
             }
+            enterParaSeguir();
         }
     }
     //Fim Cliente
@@ -174,26 +153,6 @@ public class Sistema {
 
     //Comeco Funcionario
     private static void cadastrarNovoFuncionario() {//Metodo que cadastra funcionarios, apresenta mensagem de sucesso...
-
-        /*System.out.println("\nNovo Funcionario:");
-        System.out.print("Nome: ");
-        String nome = Console.lerString();
-
-        System.out.print("CPF: ");
-        int cpf = Console.lerInt();
-
-        System.out.print("Telefone: ");
-        int telefone = Console.lerInt();
-
-        System.out.print("Funcao: ");
-        String visitas = Console.lerString();
-
-        
-        Funcionario funcionario = new Funcionario(nome, cpf, telefone, visitas);
-        Cadastro.cadastrar(funcionario);
-
-        System.out.println("\nFuncionario cadastrado com sucesso!");*/
-
 
         System.out.println("\nNovo Funcionario:");
         System.out.print("Nome: ");
@@ -214,7 +173,8 @@ public class Sistema {
         // Adiciona o cliente à lista de clientes...
         listaFuncionarios.add(funcionario);
     
-        System.out.println("\n cadastrado com sucesso!");
+        System.out.println("\nFuncionario cadastrado com sucesso!");
+        enterParaSeguir();
     }
     
     private static void procurarFuncionario() {//Metodo que procura funcionario cadastrado, caso nao tenha apresenta mensagem...
@@ -224,6 +184,7 @@ public class Sistema {
             if (funcionario.getCpf() == cpf) {
                 System.out.println("Funcionario encontrado:");
                 System.out.println(funcionario);
+                enterParaSeguir();
                 return;
             }
         }
@@ -237,6 +198,7 @@ public class Sistema {
             if (funcionario.getCpf() == cpf) {
                 listaFuncionarios.remove(funcionario);
                 System.out.println("Funcionario excluido com sucesso!");
+                enterParaSeguir();
                 return;
             }
         }
@@ -251,6 +213,7 @@ public class Sistema {
             for (Funcionario funcionario : listaFuncionarios) {
                 System.out.println(funcionario);
             }
+            enterParaSeguir();
         }
     }
     //Fim Funcionario
@@ -266,8 +229,12 @@ public class Sistema {
             verificarOpcao(op);
 
         } while (op != 0);
-        //blablabla
     }
     
+    //metodo que "Pausa o código" para melhorar a legibilidade
+    public static void enterParaSeguir(){
+        System.out.println("\nClique em qualquer tecla para continuar");
+        Console.lerString();
+    }
     
 }
