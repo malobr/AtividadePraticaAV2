@@ -18,13 +18,6 @@ public class Cliente extends Pessoa{
         this.visitas = visitas;
     }
 
-    public boolean isVip() {
-        return vip;
-    }
-    /*public void setVip(boolean vip) {
-        this.vip = vip;
-    }*/
-
     //Menssagem de apresentação Cliente
     @Override
     public String toString() {

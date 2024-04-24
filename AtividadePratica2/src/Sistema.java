@@ -109,16 +109,16 @@ public class Sistema {
         //Teste...
         System.out.println("\nNovo Cliente:");
         System.out.print("Nome: ");
-        String nome = scanner.nextLine(); // Le o nome do cliente...
+        String nome =Console.lerString(); // Le o nome do cliente...
     
         System.out.print("CPF: ");
-        int cpf = scanner.nextInt(); // Le o CPF do cliente...
+        int cpf = Console.lerInt(); // Le o CPF do cliente...
     
         System.out.print("Telefone: ");
-        int telefone = scanner.nextInt(); // Le o telefone do cliente....
+        int telefone = Console.lerInt(); // Le o telefone do cliente....
     
         System.out.print("Visitas: ");
-        int visitas = scanner.nextInt(); // Le o número de visitas do cliente...
+        int visitas = Console.lerInt(); // Le o número de visitas do cliente...
     
         /*System.out.print("Vip: ");
         boolean vip = scanner.nextBoolean(); // Le se o cliente é VIP ou não...*/
@@ -135,7 +135,7 @@ public class Sistema {
     
     private static void procurarCliente() {//Metodo para procurar clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         System.out.println("Informe o CPF do cliente:");
-        int cpf = scanner.nextInt();
+        int cpf = Console.lerInt();
         for (Cliente cliente : listaClientes) {
             if (cliente.getCpf() == cpf) {
                 System.out.println("Cliente encontrado:");
@@ -148,7 +148,7 @@ public class Sistema {
     
     private static void excluirCliente() {//Metodo para excluir clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         System.out.println("Informe o CPF do cliente a ser excluido:");
-        int cpf = scanner.nextInt();
+        int cpf = Console.lerInt();
         for (Cliente cliente : listaClientes) {
             if (cliente.getCpf() == cpf) {
                 listaClientes.remove(cliente);
@@ -200,16 +200,13 @@ public class Sistema {
         String nome = scanner.nextLine(); // Le o nome do cliente...
     
         System.out.print("CPF: ");
-        int cpf = scanner.nextInt(); // Le o CPF do cliente...
+        int cpf = Console.lerInt(); // Le o CPF do cliente...
     
         System.out.print("Telefone: ");
-        int telefone = scanner.nextInt(); // Le o telefone do cliente....
+        int telefone = Console.lerInt(); // Le o telefone do cliente....
     
         System.out.print("Funcao: ");
-        String funcao = scanner.nextLine(); // Le o número de visitas do cliente...
-    
-        /*System.out.print("Vip: ");
-        boolean vip = scanner.nextBoolean(); // Le se o cliente é VIP ou não...*/
+        String funcao = Console.lerString(); // Le o número de visitas do cliente...
     
         // Cria cliete  com as infos...
         Funcionario funcionario = new Funcionario(nome, cpf, telefone, funcao);
@@ -222,7 +219,7 @@ public class Sistema {
     
     private static void procurarFuncionario() {//Metodo que procura funcionario cadastrado, caso nao tenha apresenta mensagem...
         System.out.println("Informe o CPF do funcionario:");
-        int cpf = scanner.nextInt();
+        int cpf = Console.lerInt();
         for (Funcionario funcionario : listaFuncionarios) {
             if (funcionario.getCpf() == cpf) {
                 System.out.println("Funcionario encontrado:");
@@ -235,7 +232,7 @@ public class Sistema {
     
     private static void excluirFuncionario() {//Metodo para excluir funcionario, caso nao tenha apresenta mensagem...
         System.out.println("Informe o CPF do funcionario a ser excluido:");
-        int cpf = scanner.nextInt();
+        int cpf = Console.lerInt();
         for (Funcionario funcionario : listaFuncionarios) {
             if (funcionario.getCpf() == cpf) {
                 listaFuncionarios.remove(funcionario);
