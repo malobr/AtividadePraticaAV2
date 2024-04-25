@@ -1,4 +1,5 @@
 
+
 public class Registrado extends Funcionario {
     private float salario;
     
@@ -20,7 +21,7 @@ public class Registrado extends Funcionario {
     //Menssagem de apresentação Registrado
     @Override
     public String toString() {
-        String menssagem = super.toString() + "Salario: R$" + salario;
+        String menssagem = super.toString() + "\nSalario: R$ " + salario;//CORRIGIDO
         return menssagem;
     }
 

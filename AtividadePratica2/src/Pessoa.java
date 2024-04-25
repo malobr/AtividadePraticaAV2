@@ -1,3 +1,4 @@
+
 public class Pessoa {
     private String nome;
     private int cpf;
@@ -11,9 +12,6 @@ public class Pessoa {
         this.cpf = cpf;
         this.telefone = telefone;
     }
-
-
-
 
     public String getNome() {
         return nome;

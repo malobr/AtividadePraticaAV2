@@ -2,7 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cadastro {
-    private static List<Pessoa> listaPessoas = new ArrayList<>();
+    private static List <Pessoa> listaPessoas = new ArrayList<>();
+    public static Object getListaPessoas;
+
+    
 
     //Método que adiciona pessoa a lista
     public static void cadastrar(Pessoa pessoa){
@@ -24,41 +27,8 @@ public class Cadastro {
         //Se a pessoa não for encontrada retornaremos nulo
         return null; 
     }
-
-    /*private static List<Pessoa> listaPessoas = new ArrayList<>();
-
-    public static void cadastrar(Funcionario funcionario) {
-        listaPessoas.add(Pessoa);
-    }
-
     public static List<Pessoa> getListaPessoas() {
         return listaPessoas;
     }
 
-    public static Pessoa buscar(int cpf) {
-
-        // percorrer a lista de funcionarios
-        for (Pessoa temp : listaPessoas) {
-
-            // verificar se a matricula recebida como paramento é igual
-            // a matricula do funcionario atual (temp)
-            if (temp.getCpf() == cpf) {
-
-                // se for verdade, retornamos o funcionario atual (temp)
-                return temp;
-            }
-
-        }
-        // se sair do laço, significa que não há funcionário com a matricula
-        // igual ao valor do paramentro "matricula" recebido no método
-        return null; // entao retornamos "nulo"
-
-    }*/
-
-
-
-
-
-
-    
 }
