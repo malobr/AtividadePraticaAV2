@@ -40,7 +40,7 @@ public class Pessoa {
     //Menssagem de apresentação Pessoa
     @Override
     public String toString() {
-        String menssagem = "\nNome: " + nome + "\nCPF: " + cpf + "\nTelefone: " + telefone;
+        String menssagem = "Nome: " + nome + "\nCPF: " + cpf + "\nTelefone: " + telefone;
         return menssagem;
     }
 

@@ -21,7 +21,7 @@ public class Taxa extends Funcionario{
     //Menssagem de apresentação Taxa
     @Override
     public String toString() {
-        String menssagem = super.toString() + "Valor da hora: R$" + valorHora;
+        String menssagem = super.toString() + "\nValor da hora: R$" + valorHora + "\n------------";//Correcao de erros
         return menssagem;
     }
 }

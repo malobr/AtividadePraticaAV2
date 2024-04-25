@@ -22,7 +22,8 @@ public class Cliente extends Pessoa{
     //Menssagem de apresentação Cliente
     @Override
     public String toString() {
-        String mensagem = super.toString() + "\nVisitas: " + visitas/*  + "\nVip: " + vip*/;
+        System.out.println("\n--Cliente--");
+        String mensagem = super.toString() + "\nVisitas: " + visitas/*  + "\nVip: " + vip*/ + "\n------------";
         return mensagem;
     }
     
