@@ -1,10 +1,8 @@
-
-
 public class Registrado extends Funcionario {
     private float salario;
     
     //construtor parametrizado usando super class Pessoa e Funcionario
-    public Registrado(String nome, int cpf, int telefone, String funcao, float salario) {
+    public Registrado(String nome, String cpf, String telefone, String funcao, float salario) {
         super(nome, cpf, telefone, funcao);
         this.salario = salario;
     }

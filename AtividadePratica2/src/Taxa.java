@@ -4,7 +4,7 @@ public class Taxa extends Funcionario{
     //private float horasTrabalhadas;??
     
     //construtor parametrizado usando super class Pessoa e Funcionario
-    public Taxa(String nome, int cpf, int telefone, String funcao, float valorHora) {
+    public Taxa(String nome, String cpf, String telefone, String funcao, float valorHora) {
         super(nome, cpf, telefone, funcao);
         this.valorHora = valorHora;
     }

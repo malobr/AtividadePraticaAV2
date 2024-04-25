@@ -1,10 +1,6 @@
-
 import java.util.Scanner;
 
 public class Sistema {
-
-
-    
     private static Scanner scanner = new Scanner(System.in);
     
     private static void exibirMenu() {
@@ -27,7 +23,6 @@ public class Sistema {
     }
     
     private static void verificarOpcao(int op) {
-
         switch (op) {
             case 1: // Cadastrar Cliente
                 cadastrarNovoCliente();
@@ -41,41 +36,38 @@ public class Sistema {
             case 4: // Listar Clientes
                 listarPessoas();
                 break;
-            case 5: // Cadastrar Funcionario
+            case 5: // Excluir Pessoa
                 excluirPessoa();
                 break;
-            case 6: // Procurar Funcionario
+            case 6: // Excluir Todas as Pessoas
                 excluirTodasPessoas();
                 break;
             case 0: // Sair
                 System.out.println("\nO programa foi finalizado...");
                 break;
             default:
-                System.out.println("\nOpção invalida.... Digite novamente...");
+                System.out.println("\nOpção inválida.... Digite novamente...");
                 break;
         }
     }
 
-    
-
-
-    //Comeco cliente 
-    private static void cadastrarNovoCliente() {//Metodo de cadastro de novos clientes, apresenta mensagem de sucesso...
-
+    // Início do cadastro de cliente 
+    private static void cadastrarNovoCliente() {
         System.out.println("\nNovo Cliente:");
         System.out.print("Nome: ");
-        String nome = Console.lerString(); // Le o nome do cliente...
+        String nome = scanner.nextLine(); // Lê o nome do cliente...
     
         System.out.print("CPF: ");
-        String cpf = Console.lerString(); // Le o CPF do cliente...
+        String cpf = scanner.nextLine(); // Lê o CPF do cliente...
     
         System.out.print("Telefone: ");
-        String telefone = Console.lerString(); // Le o telefone do cliente....
+        String telefone = scanner.nextLine(); // Lê o telefone do cliente....
     
         System.out.print("Visitas: ");
-        int visitas = Console.lerInt(); // Le o número de visitas do cliente...
+        int visitas = scanner.nextInt(); // Lê o número de visitas do cliente...
+        scanner.nextLine(); // Limpa o buffer do scanner
     
-        // Cria cliete  com as infos...
+        // Cria cliente com as informações...
         Cliente cliente = new Cliente(nome, cpf, telefone, visitas);
     
         // Adiciona o cliente à lista de clientes...
@@ -83,41 +75,39 @@ public class Sistema {
     
         System.out.println("\nCliente cadastrado com sucesso!");
         enterParaSeguir();
-
-    }//NAo salva o cadastro do cliente, aparece que da certo mas na hora de procurar, excluir ou listar ele nao aparece..
+    }
     
-    private static void procurarPessoa() {//Metodo para procurar clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
+    private static void procurarPessoa() {
         System.out.println("Informe o CPF do cliente:");
-        String cpf = Console.lerString();
+        String cpf = scanner.nextLine();
         for (Pessoa cliente : Cadastro.getListaPessoas()) {
-            if (cliente.getCpf() == cpf) {
+            if (cliente.getCpf().equals(cpf)) {
                 System.out.println("Cliente encontrado:");
                 System.out.println(cliente.toString());
                 enterParaSeguir();
-
                 return;
             }
         }
-        System.out.println("Cliente nao encontrado.");
+        System.out.println("Cliente não encontrado.");
     }
     
-    private static void excluirPessoa() {//Metodo para excluir clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
-        System.out.println("Informe o CPF do cliente a ser excluido:");
-        String cpf = Console.lerString();
+    private static void excluirPessoa() {
+        System.out.println("Informe o CPF do cliente a ser excluído:");
+        String cpf = scanner.nextLine();
         for (Pessoa pessoa : Cadastro.getListaPessoas()) {
-            if (pessoa.getCpf() == cpf) {
+            if (pessoa.getCpf().equals(cpf)) {
                 Cadastro.getListaPessoas().remove(pessoa);
-                System.out.println("Pessoa excluida com sucesso!");
+                System.out.println("Pessoa excluída com sucesso!");
                 enterParaSeguir();
                 return;
             }
         }
-        System.out.println("Cliente nao encontrado.");
+        System.out.println("Cliente não encontrado.");
     }
     
-    private static void listarPessoas() {//Metodo que lista os clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
-        if (Cadastro.getListaPessoas().size() == 0) {
-            System.out.println("\nNao ha Pessoas cadastradas.");
+    private static void listarPessoas() {
+        if (Cadastro.getListaPessoas().isEmpty()) {
+            System.out.println("\nNão há Pessoas cadastradas.");
         } else {
             System.out.println("\nLista de Pessoas:");
             for (Pessoa cliente : Cadastro.getListaPessoas()) {
@@ -127,92 +117,79 @@ public class Sistema {
         }
     }
 
-    private static void cadastrarNovoFuncionario() {//Metodo que cadastra funcionarios, apresenta mensagem de sucesso...
-
-        System.out.println("\nNovo Funcionario:");
+    private static void cadastrarNovoFuncionario() {
+        System.out.println("\nNovo Funcionário:");
         System.out.print("Nome: ");
-        String nome = scanner.nextLine(); // Le o nome do cliente...
+        String nome = scanner.nextLine(); // Lê o nome do funcionário...
     
         System.out.print("CPF: ");
-        int cpf = Console.lerInt(); // Le o CPF do cliente...
+        String cpf = scanner.nextLine(); // Lê o CPF do funcionário...
     
         System.out.print("Telefone: ");
-        int telefone = Console.lerInt(); // Le o telefone do cliente....
+        String telefone = scanner.nextLine(); // Lê o telefone do funcionário....
     
-        System.out.print("Funcao: ");
-        String funcao = Console.lerString(); // Le a funvcao do funcionario
+        System.out.print("Função: ");
+        String funcao = scanner.nextLine(); // Lê a função do funcionário...
 
-        System.out.println("Deseja adicionar o tipo de funcionario:");
+        System.out.println("Deseja adicionar o tipo de funcionário:");
         System.out.println("[1] Sim ");
         System.out.println("[2] Não");
-        int escolhaTipo = Console.lerInt();
+        int escolhaTipo = scanner.nextInt();
 
         if (escolhaTipo == 1) {
-            System.out.println("Qual tipo de funcionario deseja cadastrar");
+            System.out.println("Qual tipo de funcionário deseja cadastrar");
             System.out.println("[1] Registrado");
             System.out.println("[2] Taxa ");
-            int tipo = Console.lerInt();
+            int tipo = scanner.nextInt();
             switch (tipo) {
                 case 1:
                     System.out.println("\nTipo registrado");
-                    System.out.println("\nInforme o salario do funcionario");
-                    float salario = Console.lerFloat();
+                    System.out.println("\nInforme o salário do funcionário");
+                    float salario = scanner.nextFloat();
+                    scanner.nextLine(); // Limpa o buffer do scanner
 
                     Registrado registrado = new Registrado(nome, cpf, telefone, funcao, salario);
                     Cadastro.cadastrar(registrado);
-
-
                     break;
                 case 2:
-                
                     System.out.println("\nTipo Taxa");
-                    System.out.println("\nInforme o valor da hora do funcionario");
-                    float vlrHora = Console.lerFloat();
+                    System.out.println("\nInforme o valor da hora do funcionário");
+                    float vlrHora = scanner.nextFloat();
+                    scanner.nextLine(); // Limpa o buffer do scanner
 
                     Taxa taxa = new Taxa(nome, cpf, telefone, funcao, vlrHora);
                     Cadastro.cadastrar(taxa);
-                    
                     break;
                 default:
                     System.out.println("\nResposta inválida");
                     break;
             }
-            
-        }else{
-        // Cria cliete  com as infos...
-        Funcionario funcionario = new Funcionario(nome, funcao, nome, funcao);
-    
-        // Adiciona o cliente à lista de clientes...
-        Cadastro.cadastrar(funcionario);
-    
+        } else {
+            Funcionario funcionario = new Funcionario(nome, cpf, telefone, funcao);
+            Cadastro.cadastrar(funcionario);
         }
-        System.out.println("\nFuncionario cadastrado com sucesso!");
+        System.out.println("\nFuncionário cadastrado com sucesso!");
         enterParaSeguir();
     }
 
     private static void excluirTodasPessoas() {
-        Cadastro.getListaPessoas() .clear();
+        Cadastro.getListaPessoas().clear();
         System.out.println("\nTodas as pessoas foram excluídas com sucesso!");
     }
 
-    //metodo que "Pausa o código" para melhorar a legibilidade
-    public static void enterParaSeguir(){
+    // Método para "pausar o código" e melhorar a legibilidade
+    public static void enterParaSeguir() {
         System.out.println("\nClique em qualquer tecla para continuar");
-        Console.lerString();
+        scanner.nextLine();
     }
 
-    public static void executar() {//Metodo que executa o programa quanfo chamado na (main)...
-
+    public static void executar() {
         int op;
         do {
-
             exibirMenu();
-            op = Console.lerInt();
+            op = scanner.nextInt();
+            scanner.nextLine(); // Limpa o buffer do scanner
             verificarOpcao(op);
-
         } while (op != 0);
     }
-    
-    
-    
 }
