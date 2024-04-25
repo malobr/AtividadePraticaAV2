@@ -5,7 +5,7 @@ public class Cliente extends Pessoa{
     //private boolean vip;
 
     //construtor parametrizado usando super class Pessoa
-    public Cliente(String nome, int cpf, int telefone, int visitas/*/, boolean vip*/) {
+    public Cliente(String nome, String cpf, String telefone, int visitas/*/, boolean vip*/) {
         super(nome, cpf, telefone);
         this.visitas = visitas;
         //this.vip = vip;

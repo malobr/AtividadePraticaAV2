@@ -4,7 +4,7 @@ public class Funcionario extends Pessoa{
     private String funcao;
 
     //construtor parametrizado usando super class Pessoa
-    public Funcionario(String nome, int cpf, int telefone, String funcao) {
+    public Funcionario(String nome, String cpf, String telefone, String funcao) {
         super(nome, cpf, telefone);
         this.funcao = funcao;
     }

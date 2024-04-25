@@ -15,7 +15,7 @@ public class Sistema {
         System.out.println("────█────     ---------------     ────█────");
         System.out.println("──▄▄█▄▄──                         ──▄▄█▄▄──");
         
-        
+        System.out.println("\n");
         System.out.println("[1] Cadastrar Cliente");
         System.out.println("[2] Cadastrar Funcionario");
         System.out.println("[3] Procurar Pessoa");
@@ -67,10 +67,10 @@ public class Sistema {
         String nome = Console.lerString(); // Le o nome do cliente...
     
         System.out.print("CPF: ");
-        int cpf = Console.lerInt(); // Le o CPF do cliente...
+        String cpf = Console.lerString(); // Le o CPF do cliente...
     
         System.out.print("Telefone: ");
-        int telefone = Console.lerInt(); // Le o telefone do cliente....
+        String telefone = Console.lerString(); // Le o telefone do cliente....
     
         System.out.print("Visitas: ");
         int visitas = Console.lerInt(); // Le o número de visitas do cliente...
@@ -88,7 +88,7 @@ public class Sistema {
     
     private static void procurarPessoa() {//Metodo para procurar clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         System.out.println("Informe o CPF do cliente:");
-        int cpf = Console.lerInt();
+        String cpf = Console.lerString();
         for (Pessoa cliente : Cadastro.getListaPessoas()) {
             if (cliente.getCpf() == cpf) {
                 System.out.println("Cliente encontrado:");
@@ -103,7 +103,7 @@ public class Sistema {
     
     private static void excluirPessoa() {//Metodo para excluir clientes cadastrados, caso nao tenha nenhum apresenta mensagem...
         System.out.println("Informe o CPF do cliente a ser excluido:");
-        int cpf = Console.lerInt();
+        String cpf = Console.lerString();
         for (Pessoa pessoa : Cadastro.getListaPessoas()) {
             if (pessoa.getCpf() == cpf) {
                 Cadastro.getListaPessoas().remove(pessoa);
@@ -180,7 +180,7 @@ public class Sistema {
             
         }else{
         // Cria cliete  com as infos...
-        Funcionario funcionario = new Funcionario(nome, cpf, telefone, funcao);
+        Funcionario funcionario = new Funcionario(nome, funcao, nome, funcao);
     
         // Adiciona o cliente à lista de clientes...
         Cadastro.cadastrar(funcionario);
@@ -189,7 +189,7 @@ public class Sistema {
         System.out.println("\nFuncionario cadastrado com sucesso!");
         enterParaSeguir();
     }
-  
+
     private static void excluirTodasPessoas() {
         Cadastro.getListaPessoas() .clear();
         System.out.println("\nTodas as pessoas foram excluídas com sucesso!");

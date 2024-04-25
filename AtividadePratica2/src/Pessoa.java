@@ -1,13 +1,13 @@
 
 public class Pessoa {
     private String nome;
-    private int cpf;
-    private int telefone;
+    private String cpf;
+    private String telefone;
     
     public Pessoa(){}//Construtor padrao
 
 
-    public Pessoa(String nome, int cpf, int telefone) {//Construtor com parametros
+    public Pessoa(String nome, String cpf, String telefone) {//Construtor com parametros
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
@@ -21,19 +21,19 @@ public class Pessoa {
     }
 
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
 
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 

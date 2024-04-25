@@ -13,7 +13,7 @@ public class Cadastro {
     }
 
     //Método para buscar pessoa na lista usando seu CPF
-    public static Pessoa buscar(int cpf){
+    public static Pessoa buscar(String cpf){
         
         //Passando por todas as pessoas da lista
         for (Pessoa pessoaTemporaria : listaPessoas){
