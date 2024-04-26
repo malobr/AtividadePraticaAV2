@@ -4,12 +4,7 @@ public class Sistema {
     private static Scanner scanner = new Scanner(System.in);
     
     private static void exibirMenu() {
-        System.out.println("\n");
-        System.out.println("─────▄▀──                         ─────▄▀──");
-        System.out.println("─█▀▀▀█▀█─     ---------------     ─█▀▀▀█▀█─");
-        System.out.println("──▀▄░▄▀──     |     BOATE    |    ──▀▄░▄▀──");
-        System.out.println("────█────     ---------------     ────█────");
-        System.out.println("──▄▄█▄▄──                         ──▄▄█▄▄──");
+        menu();
         
         System.out.println("\n");
         System.out.println("[1] Cadastrar Cliente");
@@ -43,7 +38,12 @@ public class Sistema {
                 excluirTodasPessoas();
                 break;
             case 0: // Sair
-                System.out.println("\nO programa foi finalizado...");
+                mensagemDeSaida();
+
+
+                
+                
+                    
                 break;
             default:
                 System.out.println("\nOpção inválida.... Digite novamente...");
@@ -51,7 +51,9 @@ public class Sistema {
         }
     }
 
-    // Início do cadastro de cliente 
+    // Início do cadastro de cliente
+
+    
     private static void cadastrarNovoCliente() {
         System.out.println("\nNovo Cliente:");
         System.out.print("Nome: ");
@@ -77,6 +79,7 @@ public class Sistema {
         enterParaSeguir();
     }
     
+
     private static void procurarPessoa() {
         System.out.println("Informe o CPF do cliente:");
         String cpf = scanner.nextLine();
@@ -181,6 +184,27 @@ public class Sistema {
     public static void enterParaSeguir() {
         System.out.println("\nClique em qualquer tecla para continuar");
         scanner.nextLine();
+    }
+
+    //Metodo para os desenhos...
+
+    private static void menu(){
+        System.out.println("\n");
+        System.out.println("─────▄▀──                         ─────▄▀──");
+        System.out.println("─█▀▀▀█▀█─     ---------------     ─█▀▀▀█▀█─");
+        System.out.println("──▀▄░▄▀──     |     BOATE    |    ──▀▄░▄▀──");
+        System.out.println("────█────     ---------------     ────█────");
+        System.out.println("──▄▄█▄▄──                         ──▄▄█▄▄──");
+    }
+
+    private static void mensagemDeSaida(){
+                System.out.println("\nO programa foi finalizado...");
+                System.out.println("\n");
+                System.out.println("─▄▀─▄▀         JJJJJJJ     AAAAA     V       V      AAAAA       ─▄▀─▄▀    ");
+                System.out.println("──▀──▀             J      A     A     V     V      A     A      ──▀──▀    ");
+                System.out.println("█▀▀▀▀▀█▄           J      AAAAAAA      V   V       AAAAAAA      █▀▀▀▀▀█▄  ");
+                System.out.println("█░░░░░█─█    J     J      A     A       V V        A     A      █░░░░░█─█ ");
+                System.out.println("▀▄▄▄▄▄▀▀      JJJJJ       A     A        V         A     A      ▀▄▄▄▄▄▀▀  ");
     }
 
     public static void executar() {
