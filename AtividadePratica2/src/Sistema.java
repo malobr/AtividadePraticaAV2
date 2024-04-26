@@ -41,9 +41,6 @@ public class Sistema {
                 mensagemDeSaida();
 
 
-                
-                
-                    
                 break;
             default:
                 System.out.println("\nOpção inválida.... Digite novamente...");
@@ -54,6 +51,7 @@ public class Sistema {
     // Início do cadastro de cliente
 
     
+    //Metodo que cadastra um novo cliente
     private static void cadastrarNovoCliente() {
         System.out.println("\nNovo Cliente:");
         System.out.print("Nome: ");
@@ -79,7 +77,7 @@ public class Sistema {
         enterParaSeguir();
     }
     
-
+    //Metodo que procura uma pessoa cadastrada pelo seu cpf...
     private static void procurarPessoa() {
         System.out.println("Informe o CPF do cliente:");
         String cpf = scanner.nextLine();
@@ -94,6 +92,7 @@ public class Sistema {
         System.out.println("Cliente não encontrado.");
     }
     
+    //Metodo que exclui uma pessoa(cliente ou funcionario) pelo cpf cadastrado...
     private static void excluirPessoa() {
         System.out.println("Informe o CPF do cliente a ser excluído:");
         String cpf = scanner.nextLine();
@@ -108,6 +107,7 @@ public class Sistema {
         System.out.println("Cliente não encontrado.");
     }
     
+    //Metodo que lista todas as pessoas cadastradas...
     private static void listarPessoas() {
         if (Cadastro.getListaPessoas().isEmpty()) {
             System.out.println("\nNão há Pessoas cadastradas.");
@@ -120,6 +120,7 @@ public class Sistema {
         }
     }
 
+    //Metodo que cadastra um novo funcionario e define seu tipo e remuneracao..
     private static void cadastrarNovoFuncionario() {
         System.out.println("\nNovo Funcionário:");
         System.out.print("Nome: ");
@@ -175,19 +176,19 @@ public class Sistema {
         enterParaSeguir();
     }
 
+    //Metodo que exclui todas as pessoas cadastradas
     private static void excluirTodasPessoas() {
         Cadastro.getListaPessoas().clear();
         System.out.println("\nTodas as pessoas foram excluídas com sucesso!");
     }
 
-    // Método para "pausar o código" e melhorar a legibilidade
+    // Método para "pausar o código" e melhorar a legibilidade...
     public static void enterParaSeguir() {
         System.out.println("\nClique em qualquer tecla para continuar");
         scanner.nextLine();
     }
 
-    //Metodo para os desenhos...
-
+    //Metodo para chamar os desenhos...
     private static void menu(){
         System.out.println("\n");
         System.out.println("─────▄▀──                         ─────▄▀──");
@@ -207,6 +208,7 @@ public class Sistema {
                 System.out.println("▀▄▄▄▄▄▀▀      JJJJJ       A     A        V         A     A      ▀▄▄▄▄▄▀▀  ");
     }
 
+    //Metodo que e chamado na main para executar o programa...
     public static void executar() {
         int op;
         do {
