@@ -16,4 +16,4 @@ Este é um sistema de balada desenvolvido em Java, utilizando princípios da Pro
 1. Clone o repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/seunome/sistema-balada-java.git
+git clone https://github.com/malobr/AtividadePraticaAV2.git
